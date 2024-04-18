@@ -24,7 +24,6 @@ def send_packet(packet, packet_no, model: Model, retry_no=1):
         return
 
     try:
-
         data = f'{packet_no};{simulate_errors(packet, model)}'
         print('Sending', packet)
         s.send(data.encode())
