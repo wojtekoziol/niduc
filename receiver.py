@@ -1,6 +1,6 @@
 import socket
 from time import sleep
-from decoder import Decoder
+import decoder
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('127.0.0.1', 12345))
@@ -21,6 +21,5 @@ while data != '':
         sleep(2)
         c.send(packet_no.encode())
 
-decoder = Decoder()
 print(decoder.from_packets(packets))
 c.close()
