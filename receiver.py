@@ -15,11 +15,12 @@ while data != '':
     if data == '' or ';' not in data:
         continue
     packet_no, packet = data.split(';')[0:2]
-    print('Received', packet_no, packet)
-    if int(packet_no) >= len(packets):
-        packets.append(packet)
+    print('Otrzymano', packet_no, packet)
+    decoded = decoder.to_even_bit_decode(packet)
+    if int(packet_no) >= len(packets) and decoded is not None:
+        packets.append(decoded)
         sleep(2)
         c.send(packet_no.encode())
 
-print(decoder.from_packets(packets))
+print('Otrzymane dane', decoder.from_packets(packets))
 c.close()

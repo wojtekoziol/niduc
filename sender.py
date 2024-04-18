@@ -24,8 +24,9 @@ def send_packet(packet, packet_no, model: Model, retry_no=1):
         return
 
     try:
-        print('Sending', packet)
-        data = f'{packet_no};{simulate_errors(packet, model)}'
+        print('Wysyłanie', packet)
+        encoded = encoder.to_even_bit(packet)
+        data = f'{packet_no};{simulate_errors(encoded, model)}'
         s.send(data.encode())
         sleep(s.gettimeout())
         if s.recv(len(str(packet_no))).decode() != str(packet_no):
