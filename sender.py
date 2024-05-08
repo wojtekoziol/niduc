@@ -8,6 +8,7 @@ from enum import Enum
 
 class Model(Enum):
     BSC = 'BSC'
+    GE = 'GE'
 
 
 def simulate_errors(data: str, model: Model, error_probability=0.1):
@@ -15,6 +16,11 @@ def simulate_errors(data: str, model: Model, error_probability=0.1):
         np.random.seed(1)
         bsc = komm.BinarySymmetricChannel(error_probability)
         y = bsc([int(x) for x in list(data)])
+        return ''.join(map(str, y))
+    elif model == Model.GE:
+        np.random.seed(1)
+        ge_channel = komm.GilbertChannel(error_probability, prob_good_to_bad, prob_bad_to_good)
+        y = ge_channel([int(x) for x in list(data)])
         return ''.join(map(str, y))
 
 
