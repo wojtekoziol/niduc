@@ -11,7 +11,7 @@ class Model(Enum):
     GE = 'GE'
 
 
-def simulate_errors(data: str, model: Model, error_probability=0.1):
+def simulate_errors(data: str, model: Model, error_probability=0.1, prob_good_to_bad=0.1, prob_bad_to_good=0.1):
     if model == Model.BSC:
         np.random.seed(1)
         bsc = komm.BinarySymmetricChannel(error_probability)
