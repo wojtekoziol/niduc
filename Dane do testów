@@ -1,6 +1,10 @@
+Wymagania do sprawozdania/raportu:
+Strona tytułowa, opis na czym polegało zadanie, dlaczego się stosuje, opis kodu, opis kodów(crc8 itp), systemu ARQ, modelów BSC, GE.
+Wykresy od nas zależą, wykrywalność błędu.
+Jak przeprowadzić badania:
 Rozmiar danych w bitach:
 4 - 8 - 16 - 32- 64 
-Ilość prób: 100
+Ilość prób:- zobaczyć po ilu wystąpią zmiany, zobaczyć stopę błędu w rzeczywistych systemach
 a) Model BSC
 b) Model Gilberta-Elliota
 Wyniki: 
