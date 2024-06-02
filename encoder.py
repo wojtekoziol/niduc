@@ -15,17 +15,17 @@ def to_even_bit(data):
     return data + parity_bit
 
 
-def to_crc8(binary_sequence):
+def to_crc8(data):
     crc8 = crcmod.predefined.Crc('crc-8')
-    crc8.update(binary_sequence.encode())
+    crc8.update(int(data, 2).to_bytes((len(data) + 7) // 8, byteorder='big'))
     crc_value = crc8.crcValue
-    encoded_sequence = binary_sequence + format(crc_value, '08b')
+    encoded_sequence = data + format(crc_value, '08b')
     return encoded_sequence
 
 
 def to_crc16(data):
     crc16 = crcmod.predefined.Crc('crc-16')
-    crc16.update(data.encode())
+    crc16.update(int(data, 2).to_bytes((len(data) + 7) // 8, byteorder='big'))
     crc_value = crc16.crcValue
     encoded_sequence = data + format(crc_value, '016b')
     return encoded_sequence
