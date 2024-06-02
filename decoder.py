@@ -11,7 +11,6 @@ def to_even_bit_decode(binary_sequence):
     if count_ones % 2 == 0:
         return binary_sequence[:-1]
     else:
-        # return "Ilość jedynek nieparzysta, wystąpił błąd transmisji."
         return None
 
 
@@ -24,7 +23,6 @@ def to_crc8_decode(encoded_sequence):
     if calculated_crc == received_crc:
         return data
     else:
-        # return "Suma kontrolna CRC-8 niezgodna."
         return None
 
 
@@ -37,7 +35,6 @@ def to_crc16_decode(encoded_sequence):
     if calculated_crc == received_crc:
         return data
     else:
-        # return "Suma kontrolna CRC-16 niezgodna."
         return None
 
 
@@ -51,5 +48,4 @@ def to_crc32_decode(encoded_sequence):
     if calculated_crc == received_crc:
         return data
     else:
-        # return "Suma kontrolna CRC-32 niezgodna."
         return None
