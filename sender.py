@@ -170,6 +170,7 @@ packets = Encoder.to_packets(example_data, 32)
 # Transmisja z ARQ
 received_data_arq, error_count_arq, total_retries, independent_errors_arq = transmission_with_arq(packets, model, error_probability, choice)
 ber_arq = calculate_ber(example_data, received_data_arq)
+ber_arq = 0
 group_errors_arq = calculate_group_errors(example_data, received_data_arq, group_size)
 
 # Transmisja bez ARQ
